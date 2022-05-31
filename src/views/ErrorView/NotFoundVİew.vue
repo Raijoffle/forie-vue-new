@@ -70,6 +70,7 @@ export default {};
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
+    position: relative;
 }
 .notFoundTitle {
     width: 30%;
@@ -219,7 +220,7 @@ export default {};
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: normal;
+    justify-content: space-between;
     align-items: center;
 
     margin-top: 26px;
@@ -227,7 +228,7 @@ export default {};
 .productDiv {
     width: 264px;
     height: 300px;
-    margin: 24px 30px;
+    margin: 6px 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -300,8 +301,37 @@ export default {};
     .notFoundTitle {
         width: 400px;
     }
-    .anoutImage {
-        width: 892px;
+    .notFoundImage {
+        position: absolute;
+    }
+    .notFoundTitle {
+        z-index: 3;
+        position: absolute;
+        top: -50px;
+        width: 100%;
+    }
+    .notFoundImage {
+        width: 100%;
+        top: 30px;
+    }
+    .whiteTriangle {
+        bottom: 0 !important;
+        right: 0 !important;
+        top: auto;
+        left: auto;
+        transform: rotate(180deg);
+    }
+    .notFoundLine {
+        background-color: transparent;
+    }
+    .notFoundContent {
+        width: 100%;
+    }
+    .notFoundTitle {
+        width: 100%;
+    }
+    .productList {
+        justify-content: center;
     }
 }
 </style>

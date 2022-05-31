@@ -25,7 +25,7 @@
                 <div><input type="email" placeholder="info@forie.com" validation /></div>
             </div>
             <div>
-                <select name="contactSelectCountry" id="contactSelectCountry">
+                <select name="requestSelectCountry" id="requestSelectCountry">
                     <option value="0">Select Country</option>
                     <option value="1">Turkey</option>
                     <option value="2">Germany</option>
@@ -86,6 +86,7 @@ export default {};
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
+    position: relative;
 }
 .requestTitle {
     width: 30%;
@@ -277,9 +278,7 @@ export default {};
     flex-grow: 0;
     margin: 0px 10px;
 }
-.contactMap {
-    margin-top: 50px !important;
-}
+
 .formButton {
     width: 560px;
     display: flex;
@@ -459,8 +458,78 @@ export default {};
     .requestTitle {
         width: 400px;
     }
-    .anoutImage {
-        width: 892px;
+    .requestImage {
+        position: absolute;
+    }
+    .requestTitle {
+        z-index: 3;
+        position: absolute;
+        top: -50px;
+        width: 100%;
+    }
+    .requestImage {
+        width: 100%;
+        top: 30px;
+    }
+    .whiteTriangle {
+        bottom: 0 !important;
+        right: 0 !important;
+        top: auto;
+        left: auto;
+        transform: rotate(180deg);
+    }
+    .requestLine {
+        background-color: transparent;
+    }
+    .requestContent {
+        width: 100%;
+    }
+    .requestTitle {
+        width: 100%;
+    }
+
+    /* ---------------------------------- */
+
+    .inputHalf div,
+    .inputHalf div input {
+        margin: 6px 0px;
+        width: 100%;
+    }
+    .inputHalf {
+        flex-direction: column;
+        width: 100%;
+    }
+    .requestForQuotationForm {
+        flex-direction: column;
+        align-content: center;
+        width: 100%;
+    }
+    .requestForQuotationForm div:nth-child(1),
+    .requestForQuotationForm div:nth-child(1) input[type="text"],
+    .requestForQuotationForm div:nth-child(5),
+    .requestForQuotationForm div:nth-child(3) select,
+    .requestForQuotationForm div:nth-child(4) textarea,
+    .requestForQuotationForm div:nth-child(4) {
+        width: 100%;
+    }
+    .requestForQuotationForm div:nth-child(3) {
+        width: 100%;
+    }
+    /* -------------------------------- */
+    .agreement,
+    .agreement div,
+    .agreement div span:nth-child(2),
+    .formButton {
+        width: 100% !important;
+        height: 100%;
+    }
+    .agreement div {
+        margin: 6px 0px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .agreement div {
+        margin: 8px 0px;
     }
 }
 </style>

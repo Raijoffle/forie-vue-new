@@ -3,16 +3,18 @@
         <div class="logo">
             <img src="@/assets/img/Frame.png" alt="" />
         </div>
-        <div class="errorSupplier">
-            <div class="supplierImage">
-                <img src="@/assets/img/supplierImage.jpg" alt="" />
-                <div class="supplierSquares">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <h1>An unknown error has occurred on the server.</h1>
+        <div class="page">
+            <div class="errorSupplier">
+                <div class="supplierImage">
+                    <img src="@/assets/img/supplierImage.jpg" alt="" />
+                    <div class="supplierSquares">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <h1>An unknown error has occurred on the server.</h1>
+                    </div>
+                    <img src="@/assets/img/whiteTriangle.png" alt="" />
                 </div>
-                <img src="@/assets/img/whiteTriangle.png" alt="" />
             </div>
         </div>
         <Footer class="errorFooter"></Footer>
@@ -30,72 +32,42 @@ export default {
 </script>
 
 <style scopeed>
-.logo {
-    width: 280px;
-    height: 120px;
-    left: 29%;
-    transform: translateX(-29%);
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.logo img {
-    max-height: 120px;
-    height: 100%;
-    width: 100%;
-}
-.errorFooter {
-    position: absolute;
-}
 .serverError {
-    background-color: #fff;
-    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 15;
-}
-.errorSupplier {
-    position: relative;
-    height: 50%;
-    width: 50%;
-    max-height: 500px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0 auto;
-}
-.supplierImage {
-    width: 100%;
-    max-height: 500px;
-    position: relative;
+    height: 100%;
+    background-color: #fff;
+    z-index: 30;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
-.supplierImage img {
-    width: 100%;
-    max-height: 500px;
+.supplierImage {
+    position: Relative;
     height: 100%;
+    max-height: 1080px;
 }
-.supplierImage img:nth-child(3) {
+.errorSupplier .supplierImage img:nth-child(1) {
+    width: 100%;
+    max-width: 1080px;
+}
+.errorSupplier .supplierImage img:nth-child(3) {
     position: absolute;
-    width: 75px;
-    height: 75px;
-    z-index: 5;
+    bottom: 3px;
     right: 0;
-    bottom: 0;
 }
 .supplierSquares {
     position: absolute;
     width: 100%;
-    height: 500px;
+    height: 100%;
+    max-height: 490px;
     top: 0;
     left: 0;
+    z-index: 6;
 }
-
 .supplierSquares div {
     background-image: url(@/assets/img/supplierSquare.svg);
     position: absolute;
@@ -103,36 +75,37 @@ export default {
     width: 100%;
     height: 270px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 20%;
+    transform: translate(-20%, -50%);
     z-index: 3;
     background: linear-gradient(0deg, rgba(165, 200, 255, 0.14), rgba(165, 200, 255, 0.14)),
         linear-gradient(0deg, #1b1b1d, #1b1b1d);
     background-blend-mode: screen;
 }
 .supplierSquares div:nth-child(2) {
+    background-image: url(@/assets/img/supplierSquare.svg);
     top: 55%;
-    left: 55%;
-    transform: translate(-55%, -55%);
+    left: 23%;
+    transform: translate(-23%, -55%);
     z-index: 2;
-    background: linear-gradient(0deg, rgba(165, 200, 255, 0.14), rgba(165, 200, 255, 0.14)),
-        linear-gradient(0deg, #1b1b1d, #1b1b1d);
+    background: linear-gradient(0deg, rgba(165, 200, 255, 0.11), rgba(165, 200, 255, 0.11)), #1b1b1d;
+
     background-blend-mode: screen;
 }
 .supplierSquares div:nth-child(3) {
+    background-image: url(@/assets/img/supplierSquare.svg);
     top: 60%;
-    left: 60%;
-    transform: translate(-60%, -60%);
+    left: 26%;
+    transform: translate(-26%, -60%);
     z-index: 1;
-    background: linear-gradient(0deg, rgba(165, 200, 255, 0.11), rgba(165, 200, 255, 0.11)), #1b1b1d;
     background-blend-mode: screen;
 }
 .supplierSquares h1 {
     position: absolute;
     width: 330px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 25%;
+    transform: translate(-25%, -50%);
     z-index: 4;
     font-family: "DM Sans";
     font-style: normal;
@@ -145,5 +118,59 @@ export default {
     display: flex;
     align-items: center;
     text-align: left;
+}
+.logo {
+    display: flex;
+    width: 100%;
+    max-width: 1080px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+@media only screen and (max-width: 768px) {
+    .logo {
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 680px) {
+    .supplierSquares div {
+        max-width: 320px;
+        height: 180px;
+    }
+    .supplierSquares h1 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .supplierImage {
+        height: 350px;
+    }
+    .supplierImage img:nth-child(1) {
+        height: 100%;
+        max-height: 350px;
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .supplierSquares div {
+        max-width: 220px;
+        height: 80px;
+    }
+    .supplierSquares h1 {
+        width: 220px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+@media only screen and (max-width: 280px) {
+    .supplierSquares div {
+        max-width: 160px;
+        height: 60px;
+    }
+    .supplierSquares h1 {
+        width: 160px;
+        font-size: 12px;
+        line-height: 16px;
+    }
 }
 </style>

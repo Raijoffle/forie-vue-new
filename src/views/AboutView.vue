@@ -101,6 +101,7 @@ export default {};
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
+    position: relative;
 }
 .aboutTitle {
     width: 30%;
@@ -183,6 +184,7 @@ export default {};
     /* background: #6e5675; */
     transform: rotate(180deg);
 }
+
 .aboutContent {
     max-height: 800px;
     height: 100%;
@@ -285,8 +287,45 @@ export default {};
     .aboutTitle {
         width: 400px;
     }
-    .anoutImage {
-        width: 892px;
+    .aboutImage {
+        position: absolute;
+    }
+    .aboutTitle {
+        z-index: 3;
+        position: absolute;
+        top: -50px;
+        width: 100%;
+    }
+    .aboutImage {
+        width: 100%;
+        top: 30px;
+    }
+    .whiteTriangle {
+        bottom: 0 !important;
+        right: 0 !important;
+        top: auto;
+        left: auto;
+        transform: rotate(180deg);
+    }
+    .aboutLine {
+        background-color: transparent;
+    }
+    .aboutContent {
+        width: 100%;
+    }
+    .contentText {
+        width: 100%;
+    }
+    .contentText span p {
+        width: 100%;
+    }
+    .aboutStatus {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .aboutStatus {
+        margin-top: 100px;
     }
 }
 </style>

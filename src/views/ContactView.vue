@@ -19,7 +19,7 @@
         <div class="contactFormDiv">
             <div class="contactUserData">
                 <div class="userData">
-                    <div>Authorized Person<span>Eser KAYA</span></div>
+                    <div>Authorized Person <span>Eser KAYA</span></div>
                     <div>Addres<span>Şekerpınar Mah. Ece Sk. No: 3, Gebze, Kocaeli, Turkey</span></div>
                     <div>Phone<span>+90 262 290 26 15</span></div>
                 </div>
@@ -36,29 +36,33 @@
                 </div>
             </div>
             <div class="contactForm">
-                <div class="inputShort">
-                    <div><input type="text" placeholder="Name Surname" /></div>
-                    <div><input type="email" placeholder="E-mail" /></div>
+                <div class="formSingle">
+                    <div>
+                        <input type="text" placeholder="Name Surname" />
+                    </div>
+                    <div>
+                        <input type="mail" placeholder="E-mail" />
+                    </div>
                 </div>
-                <div class="inputLong">
-                    <div>
-                        <select name="contactSelectCountry" id="contactSelectCountry">
-                            <option value="0">Select Country</option>
-                            <option value="1">Turkey</option>
-                            <option value="2">Germany</option>
-                            <option value="3">France</option>
-                            <option value="4">Spain</option>
-                            <option value="5">Italy</option>
-                            <option value="6">Russia</option>
-                            <option value="7">China</option>
-                            <option value="8">Japan</option>
-                            <option value="9">USA</option>
-                        </select>
-                    </div>
-                    <div><input type="text" placeholder="Subject" /></div>
-                    <div>
-                        <textarea name="message" id="messagearea" cols="10" rows="10" placeholder="Message"></textarea>
-                    </div>
+                <div>
+                    <select name="contactSelectCountry" id="contactSelectCountry">
+                        <option value="0">Select Country</option>
+                        <option value="1">Turkey</option>
+                        <option value="2">Germany</option>
+                        <option value="3">France</option>
+                        <option value="4">Spain</option>
+                        <option value="5">Italy</option>
+                        <option value="6">Russia</option>
+                        <option value="7">China</option>
+                        <option value="8">Japan</option>
+                        <option value="9">USA</option>
+                    </select>
+                </div>
+                <div class="formSubject">
+                    <input type="text" placeholder="Subject" />
+                </div>
+                <div>
+                    <textarea name="message" id="messagearea" cols="70" rows="10" placeholder="Message"></textarea>
                 </div>
                 <div class="formButton">
                     <div class="attachBtn"><span class="material-icons">attach_file</span>Attach</div>
@@ -75,10 +79,7 @@ export default {};
 .contact {
     width: 100%;
     height: 100%;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
+    align-items: center;
 }
 .contactSupplier {
     width: 100%;
@@ -88,6 +89,7 @@ export default {};
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
+    position: relative;
 }
 .contactTitle {
     width: 30%;
@@ -170,7 +172,7 @@ export default {};
     transform: rotate(180deg);
 }
 .contactFormDiv {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 120px;
     width: 100%;
     height: 100%;
@@ -276,7 +278,7 @@ export default {};
 .contactForm div:nth-child(4) input,
 .contactForm div:nth-child(5),
 .contactForm div:nth-child(5) input,
-.contactForm div select {
+.contactForm div:nth-child(2) select {
     width: 560px;
 }
 .contactForm div textarea {
@@ -323,7 +325,7 @@ export default {};
     margin-top: 50px !important;
 }
 .formButton {
-    width: 560px;
+    /* width: 560px; */
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -395,6 +397,16 @@ export default {};
     flex-grow: 0;
     margin: 0px 8px;
 }
+.formSingle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.formSingle div:nth-child(1) {
+    margin-right: 50px;
+}
 @media only screen and (max-width: 1920px) {
     .contactMap {
         display: none !important;
@@ -405,9 +417,94 @@ export default {};
         display: block !important;
     }
 }
+@media only screen and (max-width: 1024px) {
+    .contactFormDiv {
+        justify-content: center;
+    }
+    .formSingle {
+        flex-wrap: wrap;
+    }
+    .formSingle div:nth-child(1) {
+        margin-right: 0px;
+    }
+    .formSingle div {
+        width: 300px;
+    }
+    .formSingle div input {
+        width: 300px;
+    }
+    .contactForm div select,
+    .contactForm div textarea,
+    .formSubject input,
+    .formSubject,
+    .contactForm div:nth-child(4) {
+        width: 300px !important;
+    }
+    .formButton {
+        width: 300px !important;
+    }
+}
+@media only screen and (max-width: 975px) {
+    .contactUserData {
+        width: 100%;
+    }
+    .userData div,
+    .userData div span {
+        width: 100%;
+    }
+    .formSingle div,
+    .formSingle div input,
+    .contactForm,
+    .contactForm div input,
+    .contactForm div select,
+    .contactForm div:nth-child(4) textarea,
+    .contactForm div:nth-child(4),
+    .contactForm div:nth-child(2),
+    .contactForm div:nth-child(2) select,
+    .contactForm div:nth-child(1),
+    .formSubject {
+        width: 100% !important;
+    }
+    .formButton {
+        height: 90px;
+        width: 100% !important;
+    }
+    .formButton div[data-v-13b6e01b] {
+        width: 80px !important;
+    }
+}
 @media only screen and (max-width: 768px) {
     .contactTitle {
         width: 400px;
+    }
+    .contactImage {
+        position: absolute;
+    }
+    .contactTitle {
+        z-index: 3;
+        position: absolute;
+        top: -50px;
+        width: 100%;
+    }
+    .contactImage {
+        width: 100%;
+        top: 30px;
+    }
+    .whiteTriangle {
+        bottom: 0 !important;
+        right: 0 !important;
+        top: auto;
+        left: auto;
+        transform: rotate(180deg);
+    }
+    .contactLine {
+        background-color: transparent;
+    }
+    .contactContent {
+        width: 100%;
+    }
+    .contactTitle {
+        width: 100%;
     }
     .anoutImage {
         width: 892px;

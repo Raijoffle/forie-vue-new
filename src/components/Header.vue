@@ -84,6 +84,12 @@ export default {
                 $(".mobilMenuClose").hide();
                 headerFixed.removeClass("headerFixed");
             });
+            $(".headerLinks a").click(() => {
+                headerLinks.removeClass("mobilMenu-active");
+                $(".mobilMenuIcon").show();
+                $(".mobilMenuClose").hide();
+                headerFixed.removeClass("headerFixed");
+            });
         },
     },
 };
@@ -102,6 +108,10 @@ a {
 }
 .headerSearchAndLogin {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 56px;
 }
 .headerLinks {
     display: flex;
@@ -138,6 +148,7 @@ a {
     justify-content: center;
     display: flex;
     box-sizing: border-box;
+    z-index: 30;
 }
 .headerIcon {
     float: left;
@@ -203,7 +214,7 @@ a {
     text-align: left;
 }
 .headerAccount {
-    width: 200px;
+    width: 100px;
     height: 40px;
     float: right;
     margin-left: 0;
@@ -233,7 +244,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
     height: 2.5rem;
     background: #005eb5;
     border-radius: 100px;
@@ -268,6 +279,7 @@ a {
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+    z-index: 31;
 }
 .mobilMenuClose {
     display: none;
@@ -293,7 +305,7 @@ a {
 }
 @media only screen and (max-width: 1200px) {
     .headerLinks a {
-        font-size: 10px;
+        font-size: 12.5px;
         -webkit-user-select: none;
         -khtml-user-select: none;
         -moz-user-select: none;
@@ -301,7 +313,7 @@ a {
         user-select: none;
     }
     .headerLinks {
-        width: 56%;
+        width: 54%;
     }
 }
 @media only screen and (max-width: 1024px) {
@@ -320,6 +332,9 @@ a {
         cursor: pointer;
         position: relative;
         z-index: 6;
+    }
+    .headerSearch {
+        display: none;
     }
     .headerLinks a {
         color: #fff;
@@ -340,8 +355,7 @@ a {
         background-color: #1b1b1d;
         justify-content: flex-start;
         align-items: flex-start;
-        /* justify-content: space-around; */
-        opacity: 0;
+        display: none;
         z-index: -6;
     }
     .mobilMenu-active {

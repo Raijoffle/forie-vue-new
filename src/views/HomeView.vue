@@ -49,7 +49,7 @@
                             >
                         </slide>
                         <template #addons>
-                            <div class="sider-btn">
+                            <div class="sider-btn" id="sliderBtn">
                                 <Navigation />
                             </div>
                         </template>
@@ -155,11 +155,13 @@
                 </div>
             </div>
             <div class="contactForm">
-                <div>
-                    <input type="text" placeholder="Name Surname" />
-                </div>
-                <div>
-                    <input type="mail" placeholder="E-mail" />
+                <div class="formSingle">
+                    <div>
+                        <input type="text" placeholder="Name Surname" />
+                    </div>
+                    <div>
+                        <input type="mail" placeholder="E-mail" />
+                    </div>
                 </div>
                 <div>
                     <select name="contactSelectCountry" id="contactSelectCountry">
@@ -175,7 +177,7 @@
                         <option value="9">USA</option>
                     </select>
                 </div>
-                <div>
+                <div class="formSubject">
                     <input type="text" placeholder="Subject" />
                 </div>
                 <div>
@@ -201,42 +203,42 @@ export default defineComponent({
     data: () => ({
         // carousel settings
         settings: {
-            itemsToShow: 1.5,
+            itemsToShow: 1,
             snapAlign: "center",
         },
         // breakpoints are mobile first
         // any settings not specified will fallback to the carousel settings
         breakpoints: {
-            200: {
-                itemsToShow: 1,
-                snapAlign: "start",
-            },
-            300: {
-                itemsToShow: 1,
-                snapAlign: "center",
-            },
-            400: {
-                itemsToShow: 1,
-                snapAlign: "center",
-            },
-            500: {
-                itemsToShow: 1,
-                snapAlign: "center",
-            },
-            600: {
-                itemsToShow: 1,
-                snapAlign: "center",
-            },
-            // 700px and up
-            700: {
-                itemsToShow: 1,
-                snapAlign: "center",
-            },
-            // 1024 and up
-            1024: {
-                itemsToShow: 1,
-                snapAlign: "start",
-            },
+            // 200: {
+            //     itemsToShow: 1,
+            //     snapAlign: "center",
+            // },
+            // 300: {
+            //     itemsToShow: 1,
+            //     snapAlign: "center",
+            // },
+            // 400: {
+            //     itemsToShow: 1,
+            //     snapAlign: "center",
+            // },
+            // 500: {
+            //     itemsToShow: 1,
+            //     snapAlign: "center",
+            // },
+            // 600: {
+            //     itemsToShow: 1,
+            //     snapAlign: "center",
+            // },
+            // // 700px and up
+            // 700: {
+            //     itemsToShow: 1,
+            //     snapAlign: "center",
+            // },
+            // // 1024 and up
+            // 1024: {
+            //     itemsToShow: 1,
+            //     snapAlign: "start",
+            // },
         },
     }),
     components: {
@@ -255,6 +257,27 @@ $(document).ready(function () {
     });
 });
 </script>
+
+<style lang="postcss">
+@media only screen and (max-width: 480px) {
+    .sider-btn .carousel__prev,
+    .sider-btn .carousel__next {
+        top: 40%;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .sider-btn .carousel__prev,
+    .sider-btn .carousel__next {
+        top: 35%;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .sider-btn .carousel__prev,
+    .sider-btn .carousel__next {
+        top: 45%;
+    }
+}
+</style>
 <style scoped>
 .home {
     height: 100%;
@@ -292,6 +315,7 @@ $(document).ready(function () {
     height: 500px;
     top: 0;
     left: 0;
+    z-index: 6;
 }
 .supplierSquares div {
     background-image: url(../assets/img/supplierSquare.svg);
@@ -402,7 +426,7 @@ $(document).ready(function () {
     margin-top: 30px;
     width: 530px;
     height: 150px;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 .aboutText p {
     font-family: DM Sans;
@@ -469,7 +493,7 @@ $(document).ready(function () {
     height: 100%;
     width: 630px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: center;
     overflow: hidden;
@@ -477,6 +501,13 @@ $(document).ready(function () {
 .productSlider {
     box-sizing: border-box;
     padding: 0px 16px;
+}
+/* .sider-btn {
+    background: #c8c6;
+    top: 0;
+} */
+.carousel {
+    width: 100%;
 }
 .carousel__item img {
     max-height: 407px;
@@ -501,7 +532,7 @@ $(document).ready(function () {
     justify-content: center;
     align-items: left;
     box-sizing: border-box;
-    padding: 50px;
+    /* padding: 50px; */
 }
 .productTitle {
     width: 100%;
@@ -640,10 +671,12 @@ $(document).ready(function () {
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    height: 72px;
+    height: 130px;
+    overflow-x: scroll;
 }
 .countTagBox {
     display: flex;
@@ -799,10 +832,10 @@ $(document).ready(function () {
     order: 1;
     flex-grow: 0;
 }
-.contactForm div:nth-child(1),
+/* .contactForm div:nth-child(1),
 .contactForm div:nth-child(1) input {
-    margin-right: 24px;
-}
+    /* margin-right: 24px;
+} */
 
 .contactForm div:nth-child(3),
 .contactForm div:nth-child(3) input,
@@ -909,6 +942,16 @@ $(document).ready(function () {
     flex-grow: 0;
     margin: 0px 0px;
 }
+.formSingle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.formSingle div:nth-child(1) {
+    margin-right: 50px;
+}
 .sendBtn span {
     position: static;
     width: 44px;
@@ -926,9 +969,30 @@ $(document).ready(function () {
     flex-grow: 0;
     margin: 0px 8px;
 }
+.carousel__viewport {
+    height: 100%;
+}
+
+@media only screen and (max-width: 1399px) {
+    .homeProduct {
+        justify-content: center;
+    }
+    .homeAbout {
+        justify-content: center;
+    }
+    .productText,
+    .productText p {
+        width: 100%;
+    }
+}
 @media only screen and (max-width: 1300px) {
     .homeContact {
         width: 100%;
+    }
+
+    .contactForm {
+        justify-content: center;
+        align-items: center;
     }
 }
 @media only screen and (max-width: 1200px) {
@@ -954,7 +1018,8 @@ $(document).ready(function () {
         height: 110px;
     }
     .supplierSquares h1 {
-        font-size: 28px;
+        width: 250px;
+        font-size: 22px;
     }
     /* .countTitle {
     } */
@@ -965,8 +1030,102 @@ $(document).ready(function () {
     .aboutText {
         width: 100%;
     }
+    .countContent {
+        height: 600px;
+    }
+    /* .countTitle {
+    }
+    .countTypes {
+    }
+    .countTags {
+    } */
+}
+@media only screen and (max-width: 780px) {
+    .carousel {
+        width: 100% !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .supplierSquares {
+        left: 0px;
+        transform: translate(-5%, -30%);
+    }
+
+    .formSingle div:nth-child(1) {
+        margin-right: 0px;
+    }
+    .formSingle {
+        flex-direction: column;
+    }
+    .contactForm {
+        flex-direction: column;
+        align-content: center;
+    }
+    .homeContact div input,
+    .homeContact textarea,
+    .homeContact select {
+        width: 270px !important;
+    }
+    .contactForm div:nth-child(5),
+    .contactForm div:nth-child(4) {
+        width: 270px;
+    }
+    .contactForm div:nth-child(3) {
+        width: 270px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .supplierSquares div {
+        width: 270px;
+        height: 90px;
+    }
+    .supplierSquares h1 {
+        width: 200px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .supplierSquares {
+        transform: translate(-3%, -39%);
+    }
+}
+@media only screen and (max-width: 425px) {
+    .aboutContent,
+    .productText {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .productText p {
+        width: 100% !important;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .supplierImage {
+        height: 200px;
+    }
+    .productContent,
+    .productText {
+        width: 100%;
+    }
+    .productText p {
+        width: 310px !important;
+    }
+    .homeContact .contactText {
+        width: 100%;
+    }
+    .contactUserData div {
+        width: 100%;
+    }
+    .contactUserData div span:nth-child(2) {
+        width: 100%;
+    }
+    .carousel__item {
+        height: 375px !important;
+    }
 }
 @media only screen and (max-width: 320px) {
+    .carousel__item {
+        height: 320px !important;
+    }
     .aboutContent {
         padding: 0px;
     }
@@ -974,6 +1133,17 @@ $(document).ready(function () {
         width: 280px;
     }
     .aboutText p {
+        font-size: 11px;
+        width: 250px;
+    }
+    .productContent {
+        width: 320px;
+        padding: 0px;
+    }
+    .productText {
+        width: 280px;
+    }
+    .productText p {
         font-size: 11px;
         width: 250px;
     }
@@ -1007,6 +1177,67 @@ $(document).ready(function () {
     }
     .countTags {
         overflow-x: scroll;
+    }
+    .supplierSquares div {
+        width: 200px;
+        height: 60px;
+    }
+    .supplierSquares h1 {
+        width: 190px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .supplierSquares {
+        transform: translate(-4%, -37%);
+    }
+
+    .homeContact .contactText[data-v-9ea40744] {
+        width: 280px;
+    }
+    .contactUserData div span:nth-child(2) {
+        width: 100%;
+        height: 30px;
+    }
+    .homeProduct {
+        justify-content: flex-end;
+    }
+    .aboutContent {
+        width: 100% !important;
+    }
+    .productContent,
+    .productText {
+        width: 100% !important;
+    }
+    .productText p {
+        width: 100% !important;
+        height: 110px;
+    }
+}
+@media only screen and (max-width: 280px) {
+    .supplierSquares div {
+        width: 200px;
+        height: 60px;
+    }
+    .supplierSquares h1 {
+        width: 190px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .supplierSquares {
+        transform: translate(-3%, -40%);
+    }
+    .productContent {
+        width: 280px;
+    }
+    .homeContact .contactText[data-v-9ea40744] {
+        width: 280px;
+    }
+    .contactUserData div span:nth-child(2) {
+        width: 280px;
+        height: 30px;
+    }
+    .carousel__item {
+        height: 280px !important;
     }
 }
 </style>
